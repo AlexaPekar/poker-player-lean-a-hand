@@ -35,7 +35,7 @@ class Player {
     const allCards = this.getAllCards(gameState);
     for(let c in allCards){
       for(let k in allCards){
-        if(k===c){
+        if(k.rank===c.rank){
           count++;
         }
       }
@@ -54,7 +54,7 @@ class Player {
     const allCards = this.getAllCards(gameState);
     for(let c in allCards){
       for(let k in allCards){
-        if(k===c){
+        if(k.rank===c.rank){
           count++;
         }
       }
@@ -72,7 +72,7 @@ class Player {
     const allCards = this.getAllCards(gameState);
     for(let c in allCards){
       for(let k in allCards){
-        if(k===c){
+        if(k.rank===c.rank){
           count++;
         }
       }
@@ -157,7 +157,7 @@ class Player {
     const allCards = this.getAllCards(gameState);
     for(let c in allCards) {
       for (let k in allCards) {
-        if (c === k) {
+        if (c.rank === k.rank) {
           count++;
         }
       }
