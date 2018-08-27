@@ -39,6 +39,7 @@ try{
      
     }
       catch(e){
+        console.log(gameState);
         console.log(e);
         bet(960);
       }
