@@ -36,7 +36,7 @@ try{
       }
       
       else if (this.getHighestBet(gameState) > 300) {
-        bet(0)
+        bet(0);
       }else{
         bet(this.getHighestBet(gameState));
       }
