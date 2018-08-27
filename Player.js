@@ -9,15 +9,15 @@ class Player {
     try{
 
       if(this.hasPoker(gameState)){
-        bet(70);
+        bet(this.getHighestBet(gameState)+70);
       }
       if(this.hasPair(gameState)){
-        bet(20);
+        bet(this.getHighestBet(gameState)+50);
       }
       bet(this.getHighestBet(gameState));
     } catch (e) {
       console.log(e);
-      bet(50);
+      bet(this.getHighestBet(gameState));
     }
 
 
