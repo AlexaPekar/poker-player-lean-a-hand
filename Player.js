@@ -40,6 +40,10 @@ class Player {
 
     }
 
+      if(this.isDecentHand(gameState)){
+        bet(this.getHighestBet(gameState));
+      }
+
       bet(0);
 
   }
@@ -119,29 +123,18 @@ class Player {
   static showdown(gameState) {
   }
 
-  static isDecentHand(cards) {
+  static isDecentHand(gameState) {
 
-    if (this.pairInHand(cards)) {
-      return true;
-    }
-
-    const decentCardValues = ['A', 'K', 'Q', 'J', '10'];
-    let decentCards = [];
-
-
-    for (let i = 0; i < decentCardValues.length; i++) {
-      for (let k = 0; k < cards.length; k++) {
-        if (decentCardValues[i] === cards[k].rank) {
-          decentCards.push(cards[k]);
-        }
+    const lowCards = "23456789";
+    
+    for(let i=0;i<2;i++){
+      if(!lowCards.includes(this.getHoleCards(gameState)[i])){
+        return true;
       }
-
     }
 
-    if (decentCards.length > 1) {
-      return true;
-    }
     return false;
+
   }
 
   static pairInHand(handCards) {
