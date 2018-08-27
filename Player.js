@@ -8,7 +8,7 @@ class Player {
     let activePlayers = 0;
 
     for(let p in gameState.players){
-      if(p.status === "active"){
+      if(p.status == "active"){
         activePlayers++;
       }
     }
