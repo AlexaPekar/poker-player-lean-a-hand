@@ -35,7 +35,7 @@ try{
         bet(this.getHighestBet(gameState) + 50);
       }
       
-      else if (this.getHighestBet(gameState) > 300) {
+      else if (this.getHighestBet(gameState) > 300 && this.getRound(gameState)>1) {
         bet(0);
       }else{
         bet(this.getHighestBet(gameState));
