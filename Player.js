@@ -4,10 +4,11 @@ class Player {
   }
 
   static betRequest(gameState, bet) {
-
+    bet(this.getHighestBet(gameState));
+    console.log(gameState);
 
     
-try{
+/*try{
 
       if (this.hasPoker(gameState)) {
         console.log("HAS POKER");
@@ -41,8 +42,8 @@ try{
       catch(e){
         console.log(gameState);
         console.log(e);
-        bet(960);
-      }
+        bet(this.getHighestBet(gameState));
+      }*/
    
     
 
