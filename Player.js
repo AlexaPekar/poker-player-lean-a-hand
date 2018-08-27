@@ -14,6 +14,9 @@ class Player {
       else if(this.hasDrill(gameState)){
         bet(this.getHighestBet(gameState)+80);
       }
+      else if(this.hasTwoPair(gameState)) {
+        bet(this.getHighestBet(gameState)+65);
+      }
       else if(this.hasPair(gameState)){
         bet(this.getHighestBet(gameState)+50);
       }
