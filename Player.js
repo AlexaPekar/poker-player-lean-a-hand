@@ -165,17 +165,19 @@ class Player {
   static hasTwoPair(gameState) {
     let count = 0;
     let hasOnePair = false;
+    let iIndex = 0;
+    let jIndex = 0;
     let allCards = this.getAllCards(gameState);
 
     for (let i = 0; i < allCards.length; i++) {
       for (let j = 0; j < allCards.length; i++) {
-        if (allCards[i] === allCards[j]){
+        if (allCards[i].rank === allCards[j].rank){
           count++;
-          allCards.splice(i, 1);
-          allCards.splice(j, 1);
+          iIndex = i;
+          jIndex = j;
         }
       }
-      if (count === 1) {
+      if (count === 2) {
         hasOnePair = true;
       } else {
         count = 0;
@@ -183,18 +185,21 @@ class Player {
     }
     hasOnePair = false;
 
+    allCards.splice(iIndex, 1);
+    allCards.splice(jIndex, 1);
+
     if (!hasOnePair) {
       return false;
     } else {
-      for (let cardI in allCardsI){
-        for(let cardJ in allCardsJ){
-          if(cardI === cardJ){
+      for (let i in allCards){
+        for(let j in allCards){
+          if(i.rank === j.rank){
             count++;
           }
         }
         if (count === 4) {
           return true;
-        }else{
+        } else {
           count=0;
         }
       }
