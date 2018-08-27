@@ -7,45 +7,45 @@ class Player {
     bet(this.getHighestBet(gameState));
     console.log(gameState);
     console.log(this.getAllCards(gameState));
-    
-/*try{
+
+    try {
 
       if (this.hasPoker(gameState)) {
         console.log("HAS POKER");
-        console.log(this.getAllCards());
+        console.log(this.getAllCards(gameState));
         bet(this.getHighestBet(gameState) + 100);
-        
+
       }
 
       else if (this.hasDrill(gameState)) {
         console.log("HAS DRILL");
-        console.log(this.getAllCards());
+        console.log(this.getAllCards(gameState));
         bet(this.getHighestBet(gameState) + 80);
-        
+
       }
 
       else if (this.hasTwoPair(gameState)) {
         console.log("HAS TWO PAIR");
-        console.log(this.getAllCards());
+        console.log(this.getAllCards(gameState));
         bet(this.getHighestBet(gameState) + 65);
 
       }
 
       else if (this.hasPair(gameState)) {
         console.log("HAS PAIR");
-        console.log(this.getAllCards());
+        console.log(this.getAllCards(gameState));
         bet(this.getHighestBet(gameState) + 50);
+
+
+
+      } else if (this.getHighestBet(gameState) > 300) {
+        bet(0);
       }
-      
-     
     }
-      catch(e){
-        console.log(gameState);
-        console.log(e);
-        bet(this.getHighestBet(gameState));
-      }*/
-   
-    
+    catch (e) {
+      bet(this.getHighestBet(gameState));
+    }
+
 
   }
 
@@ -152,7 +152,7 @@ class Player {
     for (let i = 0; i < players.length; i++) {
       let player = players[i];
       if (player.name === 'Lean a hand') {
-        return JSON.parse(player.hole_cards);
+        return player.hole_cards;
       }
     }
   }
