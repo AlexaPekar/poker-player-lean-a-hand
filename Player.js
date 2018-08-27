@@ -11,7 +11,7 @@ class Player {
     if(this.hasPair(gameState)){
       bet(20);
     }
-      bet(10);
+    bet(0);
   }
 
   static hasPair(gameState) {
