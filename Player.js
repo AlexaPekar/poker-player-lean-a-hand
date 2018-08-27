@@ -7,7 +7,6 @@ class Player {
 
 
     try{
-
       if(this.hasPoker(gameState)){
         bet(this.getHighestBet(gameState)+100);
       }
@@ -17,7 +16,6 @@ class Player {
       if(this.hasPair(gameState)){
         bet(this.getHighestBet(gameState)+50);
       }
-      bet(this.getHighestBet(gameState));
     } catch (e) {
       console.log(e);
       bet(this.getHighestBet(gameState));
@@ -142,6 +140,12 @@ class Player {
   static getMinimumRaise(gameState){
     return gameState.minimum_raise;
   }
+
+  static getRound(gameState) {
+    return gameState.round;
+  }
+
+  static
 
   static hasTwoPair(gameState) {
     let count = 0;
