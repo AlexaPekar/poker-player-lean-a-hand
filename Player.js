@@ -6,7 +6,7 @@ class Player {
   static betRequest(gameState, bet) {
     bet(this.getHighestBet(gameState));
     console.log(gameState);
-
+    console.log(this.getAllCards());
     
 /*try{
 
@@ -152,7 +152,7 @@ class Player {
     for (let i = 0; i < players.length; i++) {
       let player = players[i];
       if (player.name === 'Lean a hand') {
-        return player.hole_cards;
+        return JSON.parse(player.hole_cards);
       }
     }
   }
