@@ -32,6 +32,7 @@ class Player {
       
       
     } catch (e) {
+      console.log(this.getAllCards());
       console.log(e);
       bet(this.getHighestBet(gameState));
     }
