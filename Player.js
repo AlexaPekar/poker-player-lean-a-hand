@@ -122,6 +122,10 @@ class Player {
     return gameState.current_buy_in;
   }
 
+  static getMinimumRaise(gameState){
+    return gameState.minimum_raise;
+  }
+
   static hasTwoPair(gameState) {
     let count = 0;
     const allCards = this.getAllCards(gameState);
