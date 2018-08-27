@@ -10,24 +10,28 @@ class Player {
 try{
       if (this.hasPoker(gameState)) {
         console.log("HAS POKER");
+        console.log(this.getAllCards());
         bet(this.getHighestBet(gameState) + 100);
         
       }
 
       else if (this.hasDrill(gameState)) {
         console.log("HAS DRILL");
+        console.log(this.getAllCards());
         bet(this.getHighestBet(gameState) + 80);
         
       }
 
       else if (this.hasTwoPair(gameState)) {
         console.log("HAS TWO PAIR");
+        console.log(this.getAllCards());
         bet(this.getHighestBet(gameState) + 65);
 
       }
 
       else if (this.hasPair(gameState)) {
         console.log("HAS PAIR");
+        console.log(this.getAllCards());
         bet(this.getHighestBet(gameState) + 50);
       }
       
