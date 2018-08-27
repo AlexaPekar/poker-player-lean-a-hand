@@ -20,6 +20,8 @@ class Player {
       }
       else if(this.hasPair(gameState)){
         bet(this.getHighestBet(gameState)+50);
+        console.log("haspair!");
+        console.log(this.getAllCards(gameState));
       }else{
         bet(0)
       }
@@ -30,6 +32,7 @@ class Player {
       
       
     } catch (e) {
+      console.log(this.getAllCards());
       console.log(e);
       bet(this.getHighestBet(gameState));
     }
