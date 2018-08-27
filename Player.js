@@ -8,6 +8,7 @@ class Player {
 
    
     try {
+      if(this.getHighestBet(gameState)<300){
       if (this.hasPoker(gameState)) {
         bet(this.getHighestBet(gameState) + 100);
       }
@@ -19,12 +20,13 @@ class Player {
       }
       else if(this.hasPair(gameState)){
         bet(this.getHighestBet(gameState)+50);
-      }
-      else if(this.getHighestBet(gameState)>300){
-        bet(0);
       }else{
-        bet(this.getHighestBet(gameState));
+        bet(0);
       }
+    }else{
+      bet(0);
+    }
+      
       
       
     } catch (e) {
