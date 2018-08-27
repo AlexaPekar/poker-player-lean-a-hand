@@ -29,6 +29,12 @@ class Player {
   static getCommunityCards(gameState) {
     return gameState.community_cards;
   }
+
+  static getAllCards(gameState) {
+    const holeCards = this.getHoleCards(gameState);
+    const communityCards = this.getCommunityCards(gameState);
+    return holeCards.concat(communityCards);
+  }
 }
 
 
