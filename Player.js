@@ -7,6 +7,7 @@ class Player {
 
 
     try{
+      
       if(this.hasPoker(gameState)){
         bet(this.getHighestBet(gameState)+100);
       }
@@ -27,6 +28,16 @@ class Player {
     }
 
 
+  }
+
+  static isActivePlayer(gameState, playerName){
+    for(let player in gameState.players){
+      if(player.name===playerName && player.status=="active"){
+        return true;
+      }else{
+        return false;
+      }
+    }
   }
 
   static hasPair(gameState) {
