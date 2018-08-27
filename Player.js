@@ -6,31 +6,22 @@ class Player {
   static betRequest(gameState, bet) {
 
 
-   
     try {
-      if(this.getHighestBet(gameState)<300){
+
       if (this.hasPoker(gameState)) {
         bet(this.getHighestBet(gameState) + 100);
       }
-      else if(this.hasDrill(gameState)){
-        bet(this.getHighestBet(gameState)+80);
+      else if (this.hasDrill(gameState)) {
+        bet(this.getHighestBet(gameState) + 80);
       }
-      else if(this.hasTwoPair(gameState)) {
-        bet(this.getHighestBet(gameState)+65);
+      else if (this.hasTwoPair(gameState)) {
+        bet(this.getHighestBet(gameState) + 65);
       }
-      else if(this.hasPair(gameState)){
-        bet(this.getHighestBet(gameState)+50);
-        console.log("haspair!");
-        console.log(this.getAllCards(gameState));
-      }else{
+      else if (this.hasPair(gameState)) {
+        bet(this.getHighestBet(gameState) + 50);
+      } else if (this.getHighestBet(gameState) < 300) {
         bet(0)
       }
-    }else{
-      bet(0);
-    }
-      
-      
-      
     } catch (e) {
       console.log(this.getAllCards());
       console.log(e);
@@ -40,11 +31,11 @@ class Player {
 
   }
 
-  static isActivePlayer(gameState, playerName){
-    for(let player in gameState.players){
-      if(player.name===playerName && player.status=="active"){
+  static isActivePlayer(gameState, playerName) {
+    for (let player in gameState.players) {
+      if (player.name === playerName && player.status == "active") {
         return true;
-      }else{
+      } else {
         return false;
       }
     }
@@ -163,7 +154,7 @@ class Player {
     return gameState.current_buy_in;
   }
 
-  static getMinimumRaise(gameState){
+  static getMinimumRaise(gameState) {
     return gameState.minimum_raise;
   }
 
@@ -181,7 +172,7 @@ class Player {
 
     for (let i = 0; i < allCards.length; i++) {
       for (let j = 0; j < allCards.length; j++) {
-        if (allCards[i].rank === allCards[j].rank){
+        if (allCards[i].rank === allCards[j].rank) {
           count++;
           iIndex = i;
           jIndex = j;
@@ -201,16 +192,16 @@ class Player {
     if (!hasOnePair) {
       return false;
     } else {
-      for (let i in allCards){
-        for(let j in allCards){
-          if(i.rank === j.rank){
+      for (let i in allCards) {
+        for (let j in allCards) {
+          if (i.rank === j.rank) {
             count++;
           }
         }
         if (count === 4) {
           return true;
         } else {
-          count=0;
+          count = 0;
         }
       }
       return false;
