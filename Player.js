@@ -5,24 +5,9 @@ class Player {
 
   static betRequest(gameState, bet) {
 
-    let activePlayers = 0;
 
-    for(let p=0; p<gameState.players.length;p++){
-      if(gameState.players[p].status == "active"){
-        console.log("ACTIVE PLAYER");
-        activePlayers++;
-      }
-    }
 
-    if(activePlayers>2){
-      activePlayers=0;
-      bet(0);
-    }else{
-      bet(this.getHighestBet(gameState));
-    }
-    
-
-    /*try {
+    try {
 
       if (this.hasPoker(gameState)) {
         console.log("HAS POKER");
@@ -52,13 +37,14 @@ class Player {
 
 
 
-      } else if (this.getHighestBet(gameState) > 300) {
-        bet(0);
-      }
     }
+
+      bet(0);
+
+  }
     catch (e) {
       bet(this.getHighestBet(gameState));
-    }*/
+    }
 
 
   }
@@ -77,9 +63,9 @@ class Player {
 
     let count = 0;
     const allCards = this.getAllCards(gameState);
-    for (let c in allCards) {
-      for (let k in allCards) {
-        if (k.rank === c.rank) {
+    for (let c = 0; c<allCards.length;c++) {
+      for (let k=0; k<allCards.length;k++) {
+        if (allCards[k].rank === allCards[c].rank) {
           count++;
         }
       }
@@ -96,9 +82,9 @@ class Player {
 
     let count = 0;
     const allCards = this.getAllCards(gameState);
-    for (let c in allCards) {
-      for (let k in allCards) {
-        if (k.rank === c.rank) {
+    for (let c=0; c<allCards.length;c++) {
+      for (let k = 0;k<allCards.length;k++) {
+        if (allCards[k].rank === allCards[c].rank) {
           count++;
         }
       }
@@ -114,9 +100,9 @@ class Player {
   static hasDrill(gameState) {
     let count = 0;
     const allCards = this.getAllCards(gameState);
-    for (let c in allCards) {
-      for (let k in allCards) {
-        if (k.rank === c.rank) {
+    for (let c=0; c<allCards.length;c++) {
+      for (let k = 0;k<allCards.length;k++) {
+        if (allCards[k].rank === allCards[c].rank) {
           count++;
         }
       }
@@ -224,9 +210,9 @@ class Player {
     if (!hasOnePair) {
       return false;
     } else {
-      for (let i in allCards) {
-        for (let j in allCards) {
-          if (i.rank === j.rank) {
+      for (let c=0; c<allCards.length;c++) {
+        for (let k = 0;k<allCards.length;k++) {
+          if (allCards[k].rank === allCards[c].rank) {
             count++;
           }
         }
