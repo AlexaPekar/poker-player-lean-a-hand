@@ -7,7 +7,7 @@ class Player {
 
 
     
-
+try{
       if (this.hasPoker(gameState)) {
         console.log("HAS POKER");
         bet(this.getHighestBet(gameState) + 100);
@@ -33,6 +33,13 @@ class Player {
       
       else if (this.getHighestBet(gameState) > 300) {
         bet(0)
+      }else{
+        bet(this.getHighestBet(gameState));
+      }
+    }
+      catch(e){
+        console.log(e);
+        bet(0);
       }
    
 
