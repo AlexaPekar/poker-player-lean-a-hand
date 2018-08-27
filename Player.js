@@ -54,9 +54,19 @@ class Player {
   }
 
   static hasTwoPair(gameState) {
+    let count = 0;
     const allCards = this.getAllCards(gameState);
-    for (i = 0; i < allCards.length; i++) {
-      let card = allCards[i];
+    for(let c in allCards) {
+      for (let k in allCards) {
+        if (c === k) {
+          count++;
+        }
+      }
+      if (count === 2){
+        return true;
+      }else{
+        count = 0;
+      }
     }
   }
 }
