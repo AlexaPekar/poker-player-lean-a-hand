@@ -5,7 +5,11 @@ class Player {
 
   static betRequest(gameState, bet) {
     console.log(gameState);
-    bet(0);
+    bet(10);
+  }
+
+  static hasPair(gameState){
+    
   }
 
   static showdown(gameState) {
