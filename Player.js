@@ -5,13 +5,22 @@ class Player {
 
   static betRequest(gameState, bet) {
 
-    if(this.hasPoker(gameState)){
-      bet(70);
+
+    try{
+
+      if(this.hasPoker(gameState)){
+        bet(70);
+      }
+      if(this.hasPair(gameState)){
+        bet(20);
+      }
+      bet(10);
+    } catch (e) {
+      console.log(e);
+      bet(10);
     }
-    if(this.hasPair(gameState)){
-      bet(20);
-    }
-    bet(10);
+
+
   }
 
   static hasPair(gameState) {
