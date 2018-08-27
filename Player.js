@@ -7,17 +7,23 @@ class Player {
 
 
     try{
-
       if(this.hasPoker(gameState)){
-        bet(70);
+        bet(this.getHighestBet(gameState)+100);
+      }
+      if(this.hasDrill(gameState)){
+        bet(this.getHighestBet(gameState)+80);
       }
       if(this.hasPair(gameState)){
-        bet(20);
+        bet(this.getHighestBet(gameState)+50);
       }
-      bet(10);
+      if(this.getHighestBet(gameState)>300){
+        bet(0);
+      }
+
+      bet(this.getHighestBet(gameState));
     } catch (e) {
       console.log(e);
-      bet(10);
+      bet(this.getHighestBet(gameState));
     }
 
 
@@ -29,7 +35,7 @@ class Player {
     const allCards = this.getAllCards(gameState);
     for(let c in allCards){
       for(let k in allCards){
-        if(k===c){
+        if(k.rank===c.rank){
           count++;
         }
       }
@@ -48,7 +54,7 @@ class Player {
     const allCards = this.getAllCards(gameState);
     for(let c in allCards){
       for(let k in allCards){
-        if(k===c){
+        if(k.rank===c.rank){
           count++;
         }
       }
@@ -61,8 +67,22 @@ class Player {
     return false;
   }
 
-  static hasDrill(allCards) {
-
+  static hasDrill(gameState) {
+    let count=0;
+    const allCards = this.getAllCards(gameState);
+    for(let c in allCards){
+      for(let k in allCards){
+        if(k.rank===c.rank){
+          count++;
+        }
+      }
+      if (count==3){
+        return true;
+      }else{
+        count=0;
+      }
+    }
+    return false;
   }
 
   static showdown(gameState) {
@@ -119,18 +139,17 @@ class Player {
   }
 
   static getHighestBet(gameState) {
-    let highestBet = 0;
-    const players = gameState.players;
-    for (let player in players) {
-      if (player.bet > highestBet) {
-        highestBet = player.bet;
-      }
-    }
-    if (highestBet === 0) {
-      highestBet = 50;
-    }
-    return highestBet;
+    return gameState.current_buy_in;
   }
+
+  static getMinimumRaise(gameState){
+    return gameState.minimum_raise;
+  }
+
+  static getRound(gameState) {
+    return gameState.round;
+  }
+
 
   static hasTwoPair(gameState) {
     let count = 0;
