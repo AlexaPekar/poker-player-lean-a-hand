@@ -40,9 +40,7 @@ class Player {
 
     }
 
-      if(this.isDecentHand(gameState)){
-        bet(this.getHighestBet(gameState));
-      }
+    
 
       bet(0);
 
