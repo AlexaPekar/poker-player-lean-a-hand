@@ -6,7 +6,7 @@ class Player {
   static betRequest(gameState, bet) {
 
 
-    try {
+    
 
       if (this.hasPoker(gameState)) {
         bet(this.getHighestBet(gameState) + 100);
@@ -22,11 +22,7 @@ class Player {
       } else if (this.getHighestBet(gameState) > 300) {
         bet(0)
       }
-    } catch (e) {
-      console.log(this.getAllCards());
-      console.log(e);
-      bet(this.getHighestBet(gameState));
-    }
+   
 
 
   }
