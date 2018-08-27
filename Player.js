@@ -7,7 +7,7 @@ class Player {
 
 
     
-
+try{
 
       if (this.hasPoker(gameState)) {
         console.log("HAS POKER");
@@ -37,9 +37,13 @@ class Player {
       }
       
      
-    
+    }
+      catch(e){
+        console.log(e);
+        bet(960);
+      }
    
-    bet(960);
+    
 
   }
 
