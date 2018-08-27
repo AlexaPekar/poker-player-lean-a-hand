@@ -8,48 +8,40 @@ class Player {
 
 
     try {
-
-      if(this.getAllCards(gameState).length>2){
-
-        if (this.hasPoker(gameState)) {
-          console.log("HAS POKER");
-          console.log(this.getAllCards(gameState));
-          bet(this.getHighestBet(gameState) + 100);
-
-        }
-
-        else if (this.hasDrill(gameState)) {
-          console.log("HAS DRILL");
-          console.log(this.getAllCards(gameState));
-          bet(this.getHighestBet(gameState) + 80);
-
-        }
-
-        else if (this.hasTwoPair(gameState)) {
-          console.log("HAS TWO PAIR");
-          console.log(this.getAllCards(gameState));
-          bet(this.getHighestBet(gameState) + 65);
-
-        }
-
-        else if (this.hasPair(gameState)) {
-          console.log("HAS PAIR");
-          console.log(this.getAllCards(gameState));
-          bet(this.getHighestBet(gameState) + 50);
-        }
-
-
-
       
-  }else{
-    if(this.getHighestBet(gameState)>250 && !this.pairInHand(gameState)){
-      bet(0);
-    }else{
-      bet(this.getHighestBet(gameState));
-    }
-  }
 
-    
+      if (this.hasPoker(gameState)) {
+        console.log("HAS POKER");
+        console.log(this.getAllCards(gameState));
+        bet(this.getHighestBet(gameState) + 100);
+
+      }
+
+      else if (this.hasDrill(gameState)) {
+        console.log("HAS DRILL");
+        console.log(this.getAllCards(gameState));
+        bet(this.getHighestBet(gameState) + 80);
+
+      }
+
+      else if (this.hasTwoPair(gameState)) {
+        console.log("HAS TWO PAIR");
+        console.log(this.getAllCards(gameState));
+        bet(this.getHighestBet(gameState) + 65);
+
+      }
+
+      else if (this.hasPair(gameState)) {
+        console.log("HAS PAIR");
+        console.log(this.getAllCards(gameState));
+        bet(this.getHighestBet(gameState) + 50);
+
+
+
+    }
+
+      bet(0);
+
   }
     catch (e) {
       bet(this.getHighestBet(gameState));
