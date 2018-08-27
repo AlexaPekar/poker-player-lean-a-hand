@@ -6,7 +6,7 @@ class Player {
   static betRequest(gameState, bet) {
     bet(this.getHighestBet(gameState));
     console.log(gameState);
-    console.log(this.getAllCards());
+    console.log(this.getAllCards(gameState));
     
 /*try{
 
