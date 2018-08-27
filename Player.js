@@ -6,22 +6,24 @@ class Player {
   static betRequest(gameState, bet) {
 
 
-    try{
-      
-      if(this.hasPoker(gameState)){
-        bet(this.getHighestBet(gameState)+100);
+   
+    try {
+      if (this.hasPoker(gameState)) {
+        bet(this.getHighestBet(gameState) + 100);
       }
-      if(this.hasDrill(gameState)){
+      else if(this.hasDrill(gameState)){
         bet(this.getHighestBet(gameState)+80);
       }
-      if(this.hasPair(gameState)){
+      else if(this.hasPair(gameState)){
         bet(this.getHighestBet(gameState)+50);
       }
-      if(this.getHighestBet(gameState)>300){
+      else if(this.getHighestBet(gameState)>300){
         bet(0);
+      }else{
+        bet(this.getHighestBet(gameState));
       }
-
-      bet(this.getHighestBet(gameState));
+      
+      
     } catch (e) {
       console.log(e);
       bet(this.getHighestBet(gameState));
@@ -42,18 +44,18 @@ class Player {
 
   static hasPair(gameState) {
 
-    let count=0;
+    let count = 0;
     const allCards = this.getAllCards(gameState);
-    for(let c in allCards){
-      for(let k in allCards){
-        if(k.rank===c.rank){
+    for (let c in allCards) {
+      for (let k in allCards) {
+        if (k.rank === c.rank) {
           count++;
         }
       }
-      if (count==2){
+      if (count == 2) {
         return true;
-      }else{
-        count=0;
+      } else {
+        count = 0;
       }
     }
     return false;
@@ -61,36 +63,36 @@ class Player {
 
   static hasPoker(gameState) {
 
-    let count=0;
+    let count = 0;
     const allCards = this.getAllCards(gameState);
-    for(let c in allCards){
-      for(let k in allCards){
-        if(k.rank===c.rank){
+    for (let c in allCards) {
+      for (let k in allCards) {
+        if (k.rank === c.rank) {
           count++;
         }
       }
-      if (count==4){
+      if (count == 4) {
         return true;
-      }else{
-        count=0;
+      } else {
+        count = 0;
       }
     }
     return false;
   }
 
   static hasDrill(gameState) {
-    let count=0;
+    let count = 0;
     const allCards = this.getAllCards(gameState);
-    for(let c in allCards){
-      for(let k in allCards){
-        if(k.rank===c.rank){
+    for (let c in allCards) {
+      for (let k in allCards) {
+        if (k.rank === c.rank) {
           count++;
         }
       }
-      if (count==3){
+      if (count == 3) {
         return true;
-      }else{
-        count=0;
+      } else {
+        count = 0;
       }
     }
     return false;
@@ -205,6 +207,19 @@ class Player {
       }
       return false;
     }
+  }
+
+  static isfaceToFace(gameState) {
+    let numberOfPlayers = 0;
+    for (let p in gameState.players) {
+      if (p.status == "active") {
+        numberOfPlayers += 1;
+      }
+    }
+    if (numberOfPlayers === 2) {
+      return true;
+    }
+    return false;
   }
 }
 
