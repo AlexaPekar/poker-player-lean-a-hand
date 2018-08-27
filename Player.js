@@ -16,7 +16,7 @@ class Player {
     const allCards = this.getAllCards(gameState);
     for(let c in allCards){
       for(let k in allCards){
-        if(allCards[k]==allCards[c]){
+        if(k==c){
           count++;
         }
       }
