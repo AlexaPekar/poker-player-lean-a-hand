@@ -119,17 +119,7 @@ class Player {
   }
 
   static getHighestBet(gameState) {
-    let highestBet = 0;
-    const players = gameState.players;
-    for (let player in players) {
-      if (player.bet > highestBet) {
-        highestBet = player.bet;
-      }
-    }
-    if (highestBet === 0) {
-      highestBet = 50;
-    }
-    return highestBet;
+    return gameState.current_buy_in;
   }
 
   static hasTwoPair(gameState) {
