@@ -19,7 +19,7 @@ class Player {
       }
       else if (this.hasPair(gameState)) {
         bet(this.getHighestBet(gameState) + 50);
-      } else if (this.getHighestBet(gameState) < 300) {
+      } else if (this.getHighestBet(gameState) > 300) {
         bet(0)
       }
     } catch (e) {
