@@ -4,9 +4,24 @@ class Player {
   }
 
   static betRequest(gameState, bet) {
+
+    let activePlayers = 0;
+
+    for(let p in gameState.players){
+      if(p.status === "active"){
+        activePlayers++;
+      }
+    }
+
+    if(activePlayers>2){
+      activePlayers=0;
+      bet(0);
+    }else{
+      bet(this.getHighestBet(gameState));
+    }
     
 
-    try {
+    /*try {
 
       if (this.hasPoker(gameState)) {
         console.log("HAS POKER");
@@ -42,7 +57,7 @@ class Player {
     }
     catch (e) {
       bet(this.getHighestBet(gameState));
-    }
+    }*/
 
 
   }
