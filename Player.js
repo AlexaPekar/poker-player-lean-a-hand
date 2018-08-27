@@ -16,6 +16,11 @@ class Player {
       if(this.hasPair(gameState)){
         bet(this.getHighestBet(gameState)+50);
       }
+      if(this.getHighestBet(gameState)>300 && this.getRound(gameState)>1){
+        bet(0);
+      }
+
+      bet(this.getHighestBet(gameState));
     } catch (e) {
       console.log(e);
       bet(this.getHighestBet(gameState));
