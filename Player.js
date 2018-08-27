@@ -9,6 +9,7 @@ class Player {
 
     for(let p in gameState.players){
       if(p.status == "active"){
+        console.log("ACTIVE PLAYER");
         activePlayers++;
       }
     }
