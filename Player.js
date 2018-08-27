@@ -14,10 +14,10 @@ class Player {
       if(this.hasPair(gameState)){
         bet(20);
       }
-      bet(10);
+      bet(this.getHighestBet(gameState));
     } catch (e) {
       console.log(e);
-      bet(10);
+      bet(50);
     }
 
 
