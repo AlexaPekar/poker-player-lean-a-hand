@@ -8,6 +8,7 @@ class Player {
 
     
 try{
+
       if (this.hasPoker(gameState)) {
         console.log("HAS POKER");
         console.log(this.getAllCards());
@@ -46,7 +47,7 @@ try{
         bet(0);
       }
    
-
+    bet(960);
 
   }
 
