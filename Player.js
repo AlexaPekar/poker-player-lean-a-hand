@@ -9,7 +9,10 @@ class Player {
     try{
 
       if(this.hasPoker(gameState)){
-        bet(this.getHighestBet(gameState)+70);
+        bet(this.getHighestBet(gameState)+100);
+      }
+      if(this.hasDrill(gameState)){
+        bet(this.getHighestBet(gameState)+80);
       }
       if(this.hasPair(gameState)){
         bet(this.getHighestBet(gameState)+50);
@@ -61,8 +64,22 @@ class Player {
     return false;
   }
 
-  static hasDrill(allCards) {
-
+  static hasDrill(gameState) {
+    let count=0;
+    const allCards = this.getAllCards(gameState);
+    for(let c in allCards){
+      for(let k in allCards){
+        if(k===c){
+          count++;
+        }
+      }
+      if (count==3){
+        return true;
+      }else{
+        count=0;
+      }
+    }
+    return false;
   }
 
   static showdown(gameState) {
