@@ -21,7 +21,7 @@ class Player {
       else if(this.hasPair(gameState)){
         bet(this.getHighestBet(gameState)+50);
       }else{
-        bet(0);
+        bet(0)
       }
     }else{
       bet(0);
@@ -177,7 +177,7 @@ class Player {
     let allCards = this.getAllCards(gameState);
 
     for (let i = 0; i < allCards.length; i++) {
-      for (let j = 0; j < allCards.length; i++) {
+      for (let j = 0; j < allCards.length; j++) {
         if (allCards[i].rank === allCards[j].rank){
           count++;
           iIndex = i;
