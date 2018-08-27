@@ -8,12 +8,18 @@ class Player {
     bet(10);
   }
 
-  static hasPair(gameState){
-    
+  static hasPair(gameState) {
+
   }
 
   static showdown(gameState) {
   }
+
+
+  static getCommunityCards(gameState) {
+    return gameState.community_cards;
+  }
 }
+
 
 module.exports = Player;
