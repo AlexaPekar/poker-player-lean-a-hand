@@ -150,7 +150,6 @@ class Player {
     return gameState.round;
   }
 
-  static
 
   static hasTwoPair(gameState) {
     let count = 0;
