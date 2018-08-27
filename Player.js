@@ -4,10 +4,14 @@ class Player {
   }
 
   static betRequest(gameState, bet) {
+    
+    if(this.hasPoker(gameState)){
+      bet(70);
+    }
     if(this.hasPair(gameState)){
       bet(20);
     }
-      bet(0);
+      bet(10);
   }
 
   static hasPair(gameState) {
@@ -16,11 +20,30 @@ class Player {
     const allCards = this.getAllCards(gameState);
     for(let c in allCards){
       for(let k in allCards){
-        if(allCards[k]==allCards[c]){
+        if(k===c){
           count++;
         }
       }
       if (count==2){
+        return true;
+      }else{
+        count=0;
+      }
+    }
+    return false;
+  }
+
+  static hasPoker(gameState) {
+    
+    let count=0;
+    const allCards = this.getAllCards(gameState);
+    for(let c in allCards){
+      for(let k in allCards){
+        if(k===c){
+          count++;
+        }
+      }
+      if (count==4){
         return true;
       }else{
         count=0;
