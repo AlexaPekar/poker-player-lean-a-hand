@@ -35,6 +35,13 @@ class Player {
     const communityCards = this.getCommunityCards(gameState);
     return holeCards.concat(communityCards);
   }
+
+  static hasTwoPair(gameState) {
+    const allCards = this.getAllCards(gameState);
+    for (i = 0; i < allCards.length; i++) {
+      let card = allCards[i];
+    }
+  }
 }
 
 
